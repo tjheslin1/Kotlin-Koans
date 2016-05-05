@@ -14,21 +14,21 @@ fun example2(list: List<Int>) {
 }
 
 fun Customer.isFrom(city: City): Boolean {
-    todoCollectionTask()
+    return this.city == city
 }
 
 fun Shop.checkAllCustomersAreFrom(city: City): Boolean {
-    todoCollectionTask()
+    return !this.customers.any { it.city != city }
 }
 
 fun Shop.hasCustomerFrom(city: City): Boolean {
-    todoCollectionTask()
+    return this.customers.any { it.city == city }
 }
 
 fun Shop.countCustomersFrom(city: City): Int {
-    todoCollectionTask()
+    return this.customers.count { it.city == city }
 }
 
 fun Shop.findAnyCustomerFrom(city: City): Customer? {
-    todoCollectionTask()
+    return this.customers.firstOrNull {  it.city == city }
 }
