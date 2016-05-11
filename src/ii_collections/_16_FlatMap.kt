@@ -8,11 +8,9 @@ fun example() {
 }
 
 val Customer.orderedProducts: Set<Product> get() {
-    return this.orderedProducts
+    return this.orders.flatMap { it.products }.toSet()
 }
 
 val Shop.allOrderedProducts: Set<Product> get() {
-//    return this.customers.map { it.orders }.flatMap { it. }.map { it. } //.toList().flatMap { it.toSet() }
-
     return this.customers.flatMap { it.orderedProducts }.toSet()
 }
